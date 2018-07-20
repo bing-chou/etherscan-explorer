@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="me.bing.web3j.app.mapper.TransactionMapper">
+
+    <select id="listByBlock" resultType="transaction">
+        select * from transaction where block_number = #{blockNumber} order by transaction_index desc
+    </select>
+
+    <select id="countInBlock" resultType="java.lang.Integer">
+        select count(*) from transaction where block_number = #{blockNumber}
+    </select>
+
+    <select id="load" resultType="transaction">
+        select * from transaction where hash = #{hash}
+    </select>
+
+    <insert id="insert">
+        insert ignore into transaction
+        (
+          hash, block_hash, block_number, `from`, `to`, value, timestamp,
+          nonce, transaction_index, data, type, gas_price, gas_limit, gas_used
+        ) values
+        <foreach collection='transactions' item='i' separator = ', '>
+            (
+            #{i.hash}, #{i.blockHash}, #{i.blockNumber}, #{i.from}, #{i.to}, #{i.value}, #{i.timestamp},
+            #{i.nonce}, #{i.transactionIndex}, #{i.data}, #{i.type}, #{i.gasPrice}, #{i.gasLimit}, #{i.gasUsed}
+            )
+        </foreach>
+    </insert>
+
+    <select id="listByAddress" resultType="transaction">
+        select * from transaction where `from` = #{address} or `to` = #{address} order by block_number desc, transaction_index desc
+    </select>
+
+    <select id="top" resultType="transaction">
+        select * from transaction order by block_number desc, transaction_index desc
+    </select>
+
+    <select id="count" resultType="java.lang.Long">
+        select count(*) from transaction
+    </select>
+
+    <select id="list" resultType="transaction">
+        select * from transaction
+        <where>
+            <trim prefixOverrides="and">
+                <if test="block != null">
+                    and block_number = #{block}
+                </if>
+                <if test="address != null">
+                    and (`from` = #{address} or `to` = #{address})
+                </if>
+            </trim>
+        </where>
+        order by block_number desc, transaction_index desc
+        limit #{offset}, #{limit}
+    </select>
+
+    <select id="countByBlockAndAddress" resultType="java.lang.Long">
+        select count(*) from transaction
+        <where>
+            <trim prefixOverrides="and">
+                <if test="block != null">
+                    and block_number = #{block}
+                </if>
+                <if test="address != null">
+                    and (`from` = #{address} or `to` = #{address})
+                </if>
+            </trim>
+        </where>
+    </select>
+
+    <select id="countByTimestamp" resultType="dayCount">
+        select left(timestamp, 10) as day, count(*) as count from transaction
+        where timestamp between #{from} and #{to}
+        group by left(timestamp, 10)
+    </select>
+
+    <select id="countInBlocks" resultType="blockTransactionCount">
+        select block_number as block, count(*) as count from transaction
+        where block_number in
+        <foreach item="block" collection="blocks" separator="," open="(" close=")" index="">
+            #{block}
+        </foreach>
+        group by block_number
+    </select>
+
+    <select id="listByBlocks" resultType="transaction">
+        select * from transaction where block_number in
+        <foreach item="block" collection="blockNumbers" separator="," open="(" close=")" index="">
+            #{block}
+        </foreach>
+    </select>
+
+</mapper>

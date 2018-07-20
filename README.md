@@ -20,8 +20,8 @@ For example:
 
 ```java
 //web3j-app/app/src/main/java/me/bing/web3j/app/common/Constant.java
-     public static String IpcAddress = "/Users/bing/test/data/geth.ipc";
-     public static String CapAddress = "https://api.coinmarketcap.com/v1/ticker/ethereum/";
+public static String IpcAddress = "/Users/bing/test/data/geth.ipc";
+public static String CapAddress = "https://api.coinmarketcap.com/v1/ticker/ethereum/";
 ```
 
 ```properties

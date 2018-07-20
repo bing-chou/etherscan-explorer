@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="me.bing.web3j.app.mapper.AccountMapper">
+
+    <select id="load" resultType="account">
+        select * from account where hash = #{hash}
+    </select>
+
+    <select id="count" resultType="java.lang.Long">
+        select count(*) from account where balance > 0
+    </select>
+
+    <select id="topByBalance" resultType="account">
+        select * from account where balance > 0 order by balance desc limit #{offset}, #{limit}
+    </select>
+
+    <insert id="update">
+        insert into account
+        (
+          hash, type, balance, nonce
+        ) values
+        <foreach collection='addresses' item='i' separator=', '>
+        (
+            #{i.hash}, #{i.type}, #{i.balance}, #{i.nonce}
+        )
+        </foreach>
+        on duplicate key update
+        balance = values(balance), nonce = values(nonce)
+    </insert>
+
+    <select id="sumBalance" resultType="java.lang.Long">
+        select sum(balance) from account
+    </select>
+</mapper>

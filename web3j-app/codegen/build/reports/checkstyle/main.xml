@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<checkstyle version="7.7">
+<file name="/Users/bing/test/etherscan-explorer/web3j-app/codegen/src/main/java/org/web3j/codegen/AbiTypesGenerator.java">
+</file>
+<file name="/Users/bing/test/etherscan-explorer/web3j-app/codegen/src/main/java/org/web3j/codegen/AbiTypesMapperGenerator.java">
+</file>
+<file name="/Users/bing/test/etherscan-explorer/web3j-app/codegen/src/main/java/org/web3j/codegen/Console.java">
+</file>
+<file name="/Users/bing/test/etherscan-explorer/web3j-app/codegen/src/main/java/org/web3j/codegen/FunctionWrapperGenerator.java">
+</file>
+<file name="/Users/bing/test/etherscan-explorer/web3j-app/codegen/src/main/java/org/web3j/codegen/GenerationReporter.java">
+</file>
+<file name="/Users/bing/test/etherscan-explorer/web3j-app/codegen/src/main/java/org/web3j/codegen/Generator.java">
+</file>
+<file name="/Users/bing/test/etherscan-explorer/web3j-app/codegen/src/main/java/org/web3j/codegen/LogGenerationReporter.java">
+</file>
+<file name="/Users/bing/test/etherscan-explorer/web3j-app/codegen/src/main/java/org/web3j/codegen/SolidityFunctionWrapper.java">
+<error line="679" severity="error" message="Line is longer than 100 characters (found 107)." source="com.puppycrawl.tools.checkstyle.checks.sizes.LineLengthCheck"/>
+<error line="680" severity="error" message="Line is longer than 100 characters (found 113)." source="com.puppycrawl.tools.checkstyle.checks.sizes.LineLengthCheck"/>
+</file>
+<file name="/Users/bing/test/etherscan-explorer/web3j-app/codegen/src/main/java/org/web3j/codegen/SolidityFunctionWrapperGenerator.java">
+</file>
+<file name="/Users/bing/test/etherscan-explorer/web3j-app/codegen/src/main/java/org/web3j/codegen/TruffleJsonFunctionWrapperGenerator.java">
+</file>
+<file name="/Users/bing/test/etherscan-explorer/web3j-app/codegen/src/main/java/org/web3j/codegen/TupleGenerator.java">
+</file>
+</checkstyle>

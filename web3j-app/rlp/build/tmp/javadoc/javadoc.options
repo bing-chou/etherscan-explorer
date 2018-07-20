@@ -1,0 +1,11 @@
+-classpath '/Users/bing/test/etherscan-explorer/web3j-app/rlp/build/classes/java/main:/Users/bing/test/etherscan-explorer/web3j-app/rlp/build/resources/main:/Users/bing/test/etherscan-explorer/web3j-app/utils/build/libs/utils-3.3.1-BING.jar:/Users/bing/.gradle/caches/modules-2/files-2.1/org.bouncycastle/bcprov-jdk15on/1.54/1acdedeb89f1d950d67b73d481eb7736df65eedb/bcprov-jdk15on-1.54.jar'
+-d '/Users/bing/test/etherscan-explorer/web3j-app/rlp/build/docs/javadoc'
+-doctitle 'rlp 3.3.1-BING API'
+-encoding 'UTF-8'
+-quiet 
+-windowtitle 'rlp 3.3.1-BING API'
+'/Users/bing/test/etherscan-explorer/web3j-app/rlp/src/main/java/org/web3j/rlp/RlpString.java'
+'/Users/bing/test/etherscan-explorer/web3j-app/rlp/src/main/java/org/web3j/rlp/RlpEncoder.java'
+'/Users/bing/test/etherscan-explorer/web3j-app/rlp/src/main/java/org/web3j/rlp/RlpList.java'
+'/Users/bing/test/etherscan-explorer/web3j-app/rlp/src/main/java/org/web3j/rlp/RlpDecoder.java'
+'/Users/bing/test/etherscan-explorer/web3j-app/rlp/src/main/java/org/web3j/rlp/RlpType.java'

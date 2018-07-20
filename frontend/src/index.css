@@ -1,0 +1,111 @@
+
+body {
+    color: #777;
+    font-size: 13px;
+}
+
+dl, ol, ul {
+    list-style: none;
+    padding: 0;
+}
+
+::-webkit-scrollbar {
+    display: none;
+}
+
+.c333   { color: #333; }
+.c777   { color: #777; }
+.mt20   { margin-top: 20px; }
+.mt50   { margin-top: 50px; }
+
+
+.monospace {
+    font-family: consolas, menlo, monaco, lucida console, liberation mono, dejavu sans mono, bitstream vera sans mono, courier new, monospace;
+}
+
+td.time {
+    position: relative;
+}
+
+td.time :nth-child(2) {
+    background-color: rgba(0, 0, 0, .8);
+    color: white;
+    display: none;
+    left: 50%;
+    padding: 10px;
+    pointer-events: none;
+    position: absolute;
+    transform: translateX(-50%);
+    white-space: nowrap;
+    z-index: 1;
+}
+
+td.time:hover :nth-child(2) {
+    display: block;
+}
+
+.tdxxxwddd > * {
+    display: inline-block;
+    max-width: 160px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    vertical-align: top;
+}
+
+/*  .modal
+    ============================================================ */
+
+.vue-modal.loading .outer {
+    border-radius: 3px;
+}
+
+.vue-modal.loading .progress {
+    margin: 20px 30px;
+    width: 300px;
+}
+
+.vue-modal.loading .progress-bar {
+    width: 100%;
+}
+
+/*  font awesome
+    ============================================================ */
+
+.fa-arrow-right {
+    color: darkgreen;
+}
+
+.fa-btc {
+    color: goldenrod;
+}
+
+.fa-check {
+    color: green;
+}
+
+.fa-flask {
+    color: greenyellow;
+}
+
+.fa-remove {
+    color: firebrick;
+}
+
+/*  overrides - bootstrap
+    ============================================================ */
+
+a, .btn-link, .page-link {
+    color: #3498db;
+}
+
+dl, ol, ul {
+    margin: 0;
+}
+
+label {
+    font-weight: normal;
+}
+
+.tooltip-inner {
+    max-width: 320px;
+}

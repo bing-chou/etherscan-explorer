@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!DOCTYPE configuration
+        PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-config.dtd">
+
+<configuration>
+    <settings>
+        <setting name="cacheEnabled" value="true"/>
+        <setting name="mapUnderscoreToCamelCase" value="true"/>
+    </settings>
+
+    <typeAliases>
+        <package name="me.bing.web3j.app.mapper.model"/>
+    </typeAliases>
+
+    <mappers>
+        <mapper resource="mybatis/mapper/BlockMapper.xml"/>
+        <mapper resource="mybatis/mapper/TransactionMapper.xml"/>
+        <mapper resource="mybatis/mapper/AccountMapper.xml"/>
+    </mappers>
+</configuration>

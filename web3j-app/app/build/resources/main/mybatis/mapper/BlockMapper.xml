@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="me.bing.web3j.app.mapper.BlockMapper">
+
+    <select id="latestNumber" resultType="java.lang.Long">
+        select max(number) from block
+    </select>
+
+    <select id="topByNumber" resultType="block">
+        select * from block where number between #{startNumber} and #{endNumber} order by number desc
+    </select>
+
+    <select id="load" resultType="block">
+        select * from block where number = #{number}
+    </select>
+
+    <select id="list" resultType="block">
+        select * from block
+            <if test="miner != null">
+                where miner = #{miner}
+            </if>
+        order by number desc limit #{offset}, #{limit}
+    </select>
+
+    <select id="count" resultType="java.lang.Long">
+        select count(*) from block
+        <if test="miner != null">
+            where miner = #{miner}
+        </if>
+    </select>
+
+    <select id="loadByHash" resultType="block">
+        select * from block where hash = #{hash}
+    </select>
+
+    <insert id="insert">
+        insert into block(
+            number, hash, timestamp, miner, difficulty,
+            total_difficulty, size, gas_used, gas_limit,
+            nonce, extra_data, parent_hash, uncle_hash, state_root,
+            receipts_root, transactions_root
+        )
+        values
+        (
+            #{block.number}, #{block.hash}, #{block.timestamp}, #{block.miner}, #{block.difficulty},
+            #{block.totalDifficulty}, #{block.size}, #{block.gasUsed}, #{block.gasLimit},
+            #{block.nonce}, #{block.extraData}, #{block.parentHash}, #{block.uncleHash}, #{block.stateRoot},
+            #{block.receiptsRoot}, #{block.transactionsRoot}
+        )
+    </insert>
+</mapper>
