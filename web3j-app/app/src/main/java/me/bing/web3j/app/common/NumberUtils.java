@@ -14,9 +14,9 @@ public class NumberUtils {
             .stripTrailingZeros().toPlainString();
     }
 
-    public static String percentage(String value, long total) {
+    public static String percentage(String value, String total) {
         return new BigDecimal(value)
-            .divide(BigDecimal.valueOf(total), 8, BigDecimal.ROUND_DOWN)
+            .divide(new BigDecimal(total), 8, BigDecimal.ROUND_DOWN)
             .multiply(new BigDecimal(100))
             .stripTrailingZeros().toPlainString();
     }

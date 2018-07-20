@@ -10,14 +10,14 @@ public class ListAccountByPageVo extends ResponseVo<ListAccountByPageVo.AccountB
     public static class AccountByPage {
 
         private List<AccountVo.Account> addressList;
-        private long totalAccountCnt;
+        private long totalAccountsCnt;
         private String totalBalance;
         private int page;
         private int totalPage;
 
         private AccountByPage(Builder builder) {
             setAddressList(builder.addressList);
-            setTotalAccountCnt(builder.totalAccountCnt);
+            setTotalAccountsCnt(builder.totalAccountsCnt);
             setTotalBalance(builder.totalBalance);
             setPage(builder.page);
             setTotalPage(builder.totalPage);
@@ -31,12 +31,12 @@ public class ListAccountByPageVo extends ResponseVo<ListAccountByPageVo.AccountB
             this.addressList = addressList;
         }
 
-        public long getTotalAccountCnt() {
-            return totalAccountCnt;
+        public long getTotalAccountsCnt() {
+            return totalAccountsCnt;
         }
 
-        public void setTotalAccountCnt(long totalAccountCnt) {
-            this.totalAccountCnt = totalAccountCnt;
+        public void setTotalAccountsCnt(long totalAccountsCnt) {
+            this.totalAccountsCnt = totalAccountsCnt;
         }
 
         public String getTotalBalance() {
@@ -66,7 +66,7 @@ public class ListAccountByPageVo extends ResponseVo<ListAccountByPageVo.AccountB
         public static final class Builder {
 
             private List<AccountVo.Account> addressList;
-            private long totalAccountCnt;
+            private long totalAccountsCnt;
             private String totalBalance;
             private int page;
             private int totalPage;
@@ -79,8 +79,8 @@ public class ListAccountByPageVo extends ResponseVo<ListAccountByPageVo.AccountB
                 return this;
             }
 
-            public Builder totalAccountCnt(long val) {
-                totalAccountCnt = val;
+            public Builder totalAccountsCnt(long val) {
+                totalAccountsCnt = val;
                 return this;
             }
 

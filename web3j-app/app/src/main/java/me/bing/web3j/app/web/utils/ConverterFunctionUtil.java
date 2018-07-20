@@ -1,6 +1,7 @@
 package me.bing.web3j.app.web.utils;
 
 import java.math.BigDecimal;
+import java.math.BigInteger;
 import java.util.Date;
 import java.util.List;
 import java.util.function.Function;
@@ -84,7 +85,7 @@ public interface ConverterFunctionUtil {
     Function<Account, AccountVo.Account> toVoAccount
         = acc -> new AccountVo.Account.Builder()
         .hash(acc.getHash())
-        .balance(String.valueOf(acc.getBalance()))
+        .balance(String.valueOf(Constant.GWeiFactor.multiply(BigInteger.valueOf(acc.getBalance()))))
         .nonce(acc.getNonce())
         .txCnt(acc.getNonce())
         .type(acc.getType())

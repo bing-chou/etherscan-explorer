@@ -1,12 +1,14 @@
 package me.bing.web3j.app.web;
 
 import java.io.IOException;
+import java.math.BigInteger;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 import java.util.Map;
 import java.util.TreeMap;
 import java.util.stream.Collectors;
+import me.bing.web3j.app.common.Constant;
 import me.bing.web3j.app.common.DateUtils;
 import me.bing.web3j.app.common.NumberUtils;
 import me.bing.web3j.app.mapper.model.Account;
@@ -207,13 +209,13 @@ public class EthController {
         int i = (page - 1) * PAGE_SIZE;
         for (AccountVo.Account acc : accountList) {
             acc.setRank(++ i);
-            acc.setPercentage(NumberUtils.percentage(acc.getBalance(), totalBalance));
+            acc.setPercentage(NumberUtils.percentage(acc.getBalance(), Constant.GWeiFactor.multiply(BigInteger.valueOf(totalBalance)).toString()));
         }
 
         ListAccountByPageVo result = new ListAccountByPageVo();
         ListAccountByPageVo.AccountByPage accountByPage = new ListAccountByPageVo.AccountByPage.Builder()
             .addressList(accountList)
-            .totalAccountCnt(count)
+            .totalAccountsCnt(count)
             .totalBalance(NumberUtils.fromGWei(totalBalance))
             .page(page)
             .totalPage((int) (count / PAGE_SIZE + 1))
