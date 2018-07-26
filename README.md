@@ -71,7 +71,7 @@ update user set plugin="mysql_native_password" where User='root';
 
 5. It is recommanded to run geth via [systemd](http://manpages.ubuntu.com/manpages/bionic/man1/systemctl.1.html)
 
-```toml
+```yaml
 #/etc/systemd/system/geth.service
 
 [Unit]
@@ -88,7 +88,7 @@ ExecStart=/usr/bin/geth --datadir /Users/bing/test/data > geth.log
 WantedBy=default.target
 ```
 
-```toml
+```yaml
 #/etc/systemd/system/web3japp.service
 
 [Unit]
@@ -109,7 +109,7 @@ WantedBy=default.target
 ```sh
 systemctl daemon-reload
 systemctl enable geth && systemctl enable web3japp
-systemctl start geth && systemctl start web3japp
+systemctl start geth && systemctl start web3japp && systemctl restart nginx
 ```
 
 ## Your contributions are welcome
