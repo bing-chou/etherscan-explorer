@@ -48,10 +48,10 @@ npm run dev # start in development
 npm run build # build html&js which are in dist folder
 ```
 
-## Installation
+## Depoly on server 
 1. Pre-installation
 
-Nginx, Mysql, Java8, Geth 
+    Nginx, Mysql, Java8, Geth 
 
 2. build frontend, target directory is dist
 
