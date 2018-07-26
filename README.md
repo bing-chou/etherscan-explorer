@@ -18,7 +18,7 @@ Custom configurations are made in files:
 
 3. web3j-app/app/src/main/resources/logback.xml
 
-For example: 
+By default: 
 
 ```java
 //web3j-app/app/src/main/java/me/bing/web3j/app/common/Constant.java
@@ -68,6 +68,8 @@ use mysql;
 update user set authentication_string=PASSWORD("") where User='root';
 update user set plugin="mysql_native_password" where User='root';
 ```
+
+create tables [scheme](https://raw.githubusercontent.com/bing-chou/etherscan-explorer/master/web3j-app/app/src/main/resources/mybatis/SCHEME.sql)
 
 5. It is recommanded to run geth via [systemd](http://manpages.ubuntu.com/manpages/bionic/man1/systemctl.1.html)
 
