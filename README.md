@@ -51,7 +51,7 @@ npm run build # build html&js which are in dist folder
 ## Installation
 1. Pre-installation
 
-Nginx, Mysql, java8, geth 
+Nginx, Mysql, Java8, Geth 
 
 2. build frontend, target directory is dist
 
