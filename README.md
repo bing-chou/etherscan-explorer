@@ -69,7 +69,7 @@ update user set authentication_string=PASSWORD("") where User='root';
 update user set plugin="mysql_native_password" where User='root';
 ```
 
-    create tables with these [schemes](https://raw.githubusercontent.com/bing-chou/etherscan-explorer/master/web3j-app/app/src/main/resources/mybatis/SCHEME.sql)
+create tables with these [schemes](https://raw.githubusercontent.com/bing-chou/etherscan-explorer/master/web3j-app/app/src/main/resources/mybatis/SCHEME.sql)
 
 5. It is recommanded to run geth via [systemd](http://manpages.ubuntu.com/manpages/bionic/man1/systemctl.1.html)
 
