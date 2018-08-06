@@ -19,6 +19,7 @@ import me.bing.web3j.app.service.utils.PageIterator;
 import me.bing.web3j.app.common.DateUtils;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.stereotype.Component;
+import org.springframework.util.CollectionUtils;
 import org.web3j.protocol.Web3j;
 
 /**
@@ -43,19 +44,22 @@ public class EthService {
     }
 
     public List<Block> latestBlocks(int page, int pageSize) {
-        long lastNum = blockMapper.latestNumber();
-        long endNum = lastNum - (page - 1) * pageSize;
-        long startNum = lastNum - page * pageSize;
-        if (startNum < 0) {
-            startNum = 0;
-        }
-        if (endNum < startNum) {
-            endNum = startNum;
-        }
+        Long lastNum = blockMapper.latestNumber();
+        List<Block> blocks = new ArrayList<>();
+        if (null != lastNum) {
+            long endNum = lastNum - (page - 1) * pageSize;
+            long startNum = lastNum - page * pageSize;
+            if (startNum < 0) {
+                startNum = 0;
+            }
+            if (endNum < startNum) {
+                endNum = startNum;
+            }
 
-        List<Block> blocks = blockMapper.topByNumber(startNum, endNum);
-        if (null == blocks) {
-            blocks = new ArrayList<>();
+            List<Block> blks = blockMapper.topByNumber(startNum, endNum);
+            if (null != blks) {
+                blocks.addAll(blks);
+            }
         }
         return blocks;
     }
@@ -148,14 +152,14 @@ public class EthService {
     }
 
     public List<BlockTransactionCount> countTransactionInBlocks(List<Long> blockNumbers) {
-        return transactionMapper.countInBlocks(blockNumbers);
+        return CollectionUtils.isEmpty(blockNumbers) ? new ArrayList<>() : transactionMapper.countInBlocks(blockNumbers);
     }
 
     public List<Transaction> listTransactionInBlocks(List<Long> blockNumbers) {
-        return transactionMapper.listByBlocks(blockNumbers);
+        return CollectionUtils.isEmpty(blockNumbers) ? new ArrayList<>() : transactionMapper.listByBlocks(blockNumbers);
     }
 
     public List<Transaction> listTransactionInBlock(Long blockNumber) {
-        return transactionMapper.listByBlock(blockNumber);
+        return null == blockNumber? new ArrayList<>() : transactionMapper.listByBlock(blockNumber);
     }
 }
