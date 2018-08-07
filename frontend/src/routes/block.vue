@@ -81,7 +81,7 @@
                     </td>
                 </tr>
                 <tr>
-                    <td>Minted</td>
+                    <td>Mined</td>
                     <td class=monospace>
                         <router-link v-bind:to='fragApi + "/address/" + block.miner.hash'>{{ block.miner.hash }}</router-link>
                         <span v-if=block.miner.alias> | {{ block.miner.alias }}</span>

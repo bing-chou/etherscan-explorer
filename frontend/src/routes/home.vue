@@ -229,7 +229,7 @@
                                 <div class=mt20>{{ timeConversion(msVmReady - o.timestamp) }} ago</div>
                             </div>
                             <div class=right>
-                                Minted By
+                                Mined By
                                 <router-link class=monospace v-bind:to='fragApi + "/address/" + o.miner.hash'>{{ o.miner.hash }}</router-link>
                                 <div class=mt16>
                                     <router-link v-bind:to='fragApi + "/txs?block=" + o.height'>

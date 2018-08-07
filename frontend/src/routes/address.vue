@@ -83,7 +83,7 @@
                     <td>{{ obj.txCnt }}</td>
                 </tr>
                 <tr>
-                    <td>Minted:</td>
+                    <td>Mined:</td>
                     <td>{{ obj.mintedBlkCnt }}</td>
                 </tr>
             </table>
@@ -167,7 +167,7 @@
                 </table>
             </div>
 
-            <!--    Minted Blocks
+            <!--    Mined Blocks
                 ============================================================ -->
             <!-- <div class=tab v-show="tab == 2">
                 <div class="align-items-center row title">
@@ -202,7 +202,7 @@
                 </table>
             </div> -->
 
-            <!--    Minted Uncles
+            <!--    Mined Uncles
                 ============================================================ -->
             <!-- <div class=tab v-show="tab == 3">
                 <div class="align-items-center row title">

@@ -13,7 +13,7 @@
                     <th>Height</th>
                     <th class=text-right>Age</th>
                     <th>txn</th>
-                    <th>Minted</th>
+                    <th>Mined</th>
                     <th class=text-right>Gas Reward</th>
                     <th class=text-right>GasLimit</th>
                     <th class=text-right>Avg.GasPrice</th>
