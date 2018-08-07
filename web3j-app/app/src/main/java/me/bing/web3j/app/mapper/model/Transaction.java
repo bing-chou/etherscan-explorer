@@ -1,5 +1,6 @@
 package me.bing.web3j.app.mapper.model;
 
+import java.math.BigInteger;
 import java.util.Date;
 
 /**
@@ -12,7 +13,7 @@ public class Transaction {
     private long blockNumber;
     private String from;
     private String to;
-    private long value;
+    private BigInteger value;
     private int status;
     private Date timestamp;
     private int nonce;
@@ -87,11 +88,11 @@ public class Transaction {
         this.to = to;
     }
 
-    public long getValue() {
+    public BigInteger getValue() {
         return value;
     }
 
-    public void setValue(long value) {
+    public void setValue(BigInteger value) {
         this.value = value;
     }
 
@@ -174,7 +175,7 @@ public class Transaction {
         private long blockNumber;
         private String from;
         private String to;
-        private long value;
+        private BigInteger value;
         private int status;
         private Date timestamp;
         private int nonce;
@@ -213,7 +214,7 @@ public class Transaction {
             return this;
         }
 
-        public Builder value(long val) {
+        public Builder value(BigInteger val) {
             value = val;
             return this;
         }
