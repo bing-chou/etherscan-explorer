@@ -64,7 +64,7 @@ public interface ConverterFunctionUtil {
             .hash(tx.getTo())
             .build())
         .status(tx.getStatus())
-        .value(String.valueOf(tx.getValue()))
+        .value(String.valueOf(Constant.GWeiFactor.multiply(BigInteger.valueOf(tx.getValue()))))
         .nonce((long) tx.getNonce())
         .timestamp(tx.getTimestamp())
         .type(String.valueOf(tx.getType()))
